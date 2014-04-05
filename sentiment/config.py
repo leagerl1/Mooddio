@@ -1,0 +1,2 @@
+consumer_key='KIq9rJZFHFxZCgtGsmwkwzlnw'
+consumer_secret='ypvPeisplxEdbG5CBOUXYUppDcp4zfgis5zVKzJHP5dScp2hrf'
