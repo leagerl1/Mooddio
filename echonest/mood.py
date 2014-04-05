@@ -1,16 +1,21 @@
 import pyen
 import requests
+import json
+
 en = pyen.Pyen("KDS5VIPB1DQPBQKR6")
 
-response = en.get('playlist/static/', artist='weezer',type='artist-radio')
-for i, song in enumerate(response['songs']):
-    print "%d %-32.32s %s" % (i,song['artist_name'], song['title'])
+ec_url = 'http://developer.echonest.com/api/v4/playlist/static'
+ec_params = {'api_key': 'KDS5VIPB1DQPBQKR6','mood':'angry','type': 'artist-description','results': '20','bucket': ['id:rdio-US', 'tracks']}
+ec_r = requests.get(ec_url, params=ec_params)
 
-r = requests.get('http://developer.echonest.com/api/v4/song/search?api_key=KDS5VIPB1DQPBQKR6&format=json&results=1&artist=radiohead&title=karma%20police&bucket=id:rdio-US&bucket=tracks')
+'''api_key=KDS5VIPB1DQPBQKR6&mood=angry&type=artist-description&results=20&bucket=id:rdio-US&bucket=tracks')'''
 
-r.text
-print r.text
+#print r.content
+tracks = []
+data = json.loads(ec_r.text)
 
-#http://developer.echonest.com/api/v4/song/search?api_key=YOUR_API_KEY&format=json&results=1&artist=radiohead&title=karma%20police&bucket=id:rdio-US&bucket=tracks
+for i in range(len(data['response']['songs'])):
+    if len(data['response']['songs'][i]['tracks']) > 0:
+        tracks.append(data['response']['songs'][i]['tracks'][0]['foreign_id'][14:])
 
-#http://developer.echonest.com/api/v4/song/search?api_key=YOUR_API_KEY&format=json&results=1&artist=radiohead&title=karma%20police&bucket=id:rdio-US&bucket=tracks
+print tracks
