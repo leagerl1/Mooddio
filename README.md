@@ -19,4 +19,4 @@ flask/bin/pip install pytz==2013b
 flask/bin/pip install flask-babel==0.8
 flask/bin/pip install flup
 
-pip install requests requests_oauthlib
+flask/bin/pip install requests requests_oauthlib

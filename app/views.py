@@ -4,6 +4,7 @@ from forms import LoginForm
 import requests
 from requests_oauthlib import OAuth1
 import json
+from twkey import *
 
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/index', methods = ['GET', 'POST'])
@@ -12,7 +13,7 @@ def index():
 	posts = []
 	if(form.twitter.data):
 		url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
-		twitter_auth = OAuth1(TW_APIKEY, TW_APISEC, TW_ACCTOK, TW_ACCDEC)
+		twitter_auth = OAuth1(TW_APIKEY, TW_APISEC, TW_ACCTOK, TW_ACCSEC)
 		twitter_params = {'screen_name': form.twitter.data, 'count':'10'}
 		r = requests.get(url, params = twitter_params, auth=twitter_auth)
 		if r.status_code == requests.codes.ok:
