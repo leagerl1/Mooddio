@@ -3,7 +3,7 @@
 {% if form.twitter.data %}
    <h1>Hi, {{form.twitter.data}}!</h1>
    {% for post in posts %}
-      <div><p>{{post.author.nickname}} says: <b>{{post.body}}</b></p></div>
+      <div><p>{{post}}</b></p></div>
    {% endfor %}
 {% else %}
    <form action="" method="post" name="login">

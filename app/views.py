@@ -1,21 +1,27 @@
 from flask import render_template, flash, redirect
 from app import app
 from forms import LoginForm
+import requests
+from requests_oauthlib import OAuth1
+import json
 
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
 	form = LoginForm()
-	posts = [ # fake array of posts
-        	{ 
-            		'author': { 'nickname': 'John' }, 
-	        	'body': 'Beautiful day in Portland!' 
-        	},
-        	{ 
-            		'author': { 'nickname': 'Susan' }, 
-            		'body': 'The Avengers movie was so cool!' 
-        	}
-    	]
+	posts = []
+	if(form.twitter.data):
+		url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
+		twitter_auth = OAuth1(TW_APIKEY, TW_APISEC, TW_ACCTOK, TW_ACCDEC)
+		twitter_params = {'screen_name': form.twitter.data, 'count':'10'}
+		r = requests.get(url, params = twitter_params, auth=twitter_auth)
+		if r.status_code == requests.codes.ok:
+			data = json.loads(r.text)
+			for tweets in data:
+				posts.append(tweets['text'])
+		else:
+			form.twitter.data = ""
 	return render_template("index.html",
 		form = form,
 		posts = posts)
+
