@@ -1,5 +1,4 @@
 *.pyc
 flask/
 twkey.py
-api_key.txt
-
+alkey.py
