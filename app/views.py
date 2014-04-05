@@ -6,6 +6,7 @@ from twkey import *
 from alkey import *
 from words import *
 import json
+import pyen
 import requests
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -28,7 +29,25 @@ def index():
 			al_params = {'apikey':AL_KEY, 'text':tweets,'outputMode':'json'}
 			al_r = requests.post(al_url, data=al_params)
 			al_data = json.loads(al_r.text)
-			mood = str(al_data['docSentiment']['score'])
+			mood_val = al_data['docSentiment']['score']
+			mood = ""
+			if mood_val < .3:
+				mood = "sad"
+			else:
+				mood = "happy"
+			en = pyen.Pyen("KDS5VIPB1DQPBQKR6")
+
+			ec_url = 'http://developer.echonest.com/api/v4/playlist/static'
+			ec_params = {'api_key': 'KDS5VIPB1DQPBQKR6','mood':mood,'type': 'artist-description','results': '20','bucket': ['id:rdio-US', 'tracks']}
+			ec_r = requests.get(ec_url, params=ec_params)
+
+			tracks = []
+			data = json.loads(ec_r.text)
+
+			for i in range(len(data['response']['songs'])):
+				if len(data['response']['songs'][i]['tracks']) > 0:
+        				tracks.append(data['response']['songs'][i]['tracks'][0]['foreign_id'][14:])
+			print tracks
 		else:
 			form.twitter.data = ""
 	"""pos_level = 0.0;
