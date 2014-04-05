@@ -1,4 +1,3 @@
 *.pyc
 flask/
 twkey.py
-alkey.py

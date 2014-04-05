@@ -137,7 +137,6 @@ for i in range(len(positive)):
 	positive[i] = positive[i].lower()
 
 sad_words = '''
-A
 abysmal
 adverse
 alarming
@@ -148,7 +147,6 @@ apathy
 appalling
 atrocious
 awful
-B
 bad
 banal
 barbed
@@ -157,7 +155,6 @@ bemoan
 beneath
 boring
 broken
-C
 callous
 can't
 clumsy
@@ -176,7 +173,6 @@ criminal
 cruel
 cry
 cutting
-D
 dead
 decaying
 damage
@@ -201,11 +197,9 @@ distress
 don't
 dreadful
 dreary
-E
 enraged
 eroding
 evil
-F
 fail
 faulty
 fear
@@ -215,7 +209,6 @@ filthy
 foul
 frighten
 frightful
-G
 gawky
 ghastly
 grave
@@ -226,7 +219,6 @@ gross
 grotesque
 gruesome
 guilty
-H
 haggard
 hard
 hard-hearted
@@ -255,14 +247,11 @@ injurious
 insane
 insidious
 insipid
-J
 jealous
 junky
-L
 lose
 lousy
 lumpy
-M
 malicious
 mean
 menacing
@@ -273,7 +262,6 @@ misunderstood
 moan
 moldy
 monstrous
-N
 naive
 nasty
 naughty
@@ -286,13 +274,11 @@ nondescript
 nonsense
 not
 noxious
-O
 objectionable
 odious
 offensive
 old
 oppressive
-P
 pain
 perturb
 pessimistic
@@ -301,11 +287,9 @@ plain
 poisonous
 poor
 prejudice
-Q
 questionable
 quirky
 quit
-R
 reject
 renege
 repellant
@@ -318,7 +302,6 @@ rocky
 rotten
 rude
 ruthless
-S
 sad
 savage
 scare
@@ -344,12 +327,10 @@ stupid
 substandard
 suspect
 suspicious
-T
 tense
 terrible
 terrifying
 threatening
-U
 ugly
 undermine
 unfair
