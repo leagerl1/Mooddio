@@ -1,0 +1,1 @@
+AL_KEY = "228e77355010222bdea8c04a54f0db15cf7ebab7"
