@@ -3,9 +3,6 @@
 {% if form.twitter.data %}
    <h1>Hi, {{form.twitter.data}}!</h1>
    <h2>Your happiness level is: {{mood}}</h2>
-   {% for post in posts %}
-      <div><p>{{post}}</b></p></div>
-   {% endfor %}
 {% else %}
    <form action="" method="post" name="login">
       {{form.hidden_tag()}}

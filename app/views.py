@@ -58,6 +58,5 @@ def index():
 	"""
 	return render_template("index.html",
 		form = form,
-		posts = posts,
 		mood = mood)
 
