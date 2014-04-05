@@ -1,5 +1,12 @@
 <html>
   <head>
+    <style>
+      body{
+      background: url("http://i.imgur.com/80TI0JL.png");
+      background-size: cover;
+      background-position: center;
+      }
+    </style>
     <title>Moodio</title>
   </head>
   <body>
