@@ -12,6 +12,8 @@ from words import *
 def index():
 	form = LoginForm()
 	posts = []
+	pos_level = 0.0;
+	neg_level = 0.0;
 	if(form.twitter.data):
 		url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
 		twitter_auth = OAuth1(TW_APIKEY, TW_APISEC, TW_ACCTOK, TW_ACCSEC)
@@ -23,16 +25,19 @@ def index():
 				posts.append(tweets['text'])
 		else:
 			form.twitter.data = ""
-		mood = 0;
 		for post in posts:
 			words = post.split()
 			for word in words:
 				if word.lower() in positive:
-					mood+=1
+					pos_level+=1
 				elif word.lower() in negative:
-					mood-=1
-		print mood
+					neg_level+=1
+	if pos_level + neg_level > 0:
+		mood = pos_level/(pos_level+neg_level)
+	else:
+		mood = 0
 	return render_template("index.html",
 		form = form,
-		posts = posts)
+		posts = posts,
+		mood = mood)
 
