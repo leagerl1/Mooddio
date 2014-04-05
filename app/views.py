@@ -27,7 +27,6 @@ def index():
 		for post in posts:
 			words = post.split()
 			for word in words:
-				print word
 				if word.lower() in positive:
 					mood+=1
 				elif word.lower() in negative:
