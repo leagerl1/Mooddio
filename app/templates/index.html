@@ -2,24 +2,22 @@
 {% block content %}
 <style>
       .gettwit, .buttons {
-        position:absolute;
+	color: white;
 	height: 100px;
         width: 450px;
         text-align:center;
         margin: 0 auto;
-	left:50%;
-	margin-left:-225px;
-	bottom: 120px;
       }
       input[type=text]
       {
-        background: rgba(0,0,0,0);
+	color: white;
+        background: url(../static/img/twitter_holder.png);
         border: 0;
         font-size: 50px;
         height: 75px;
-        width: 450px;
-        text-transform:uppercase;
-        padding-left:30px;
+        width: 430px;
+	margin-right: 0;
+        padding-left:80px;
       } 
       input:focus
       {
@@ -29,8 +27,6 @@
 {% if form.twitter.data %}
 <script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
 </script>
-<h1>Hi, {{form.twitter.data}}!</h1>
-<h2>Your happiness level is: {{mood}}</h2>
 <script>
   R.ready(function() {
   {% for song in tracks %}
@@ -49,6 +45,7 @@
   }
 </script>
 <div class="buttons" align="center">
+<h3>From your tweets, I see you are a {{mood}} person.<br>Here's your playlist.</h3>
   <a href="#" onClick="play_previous()"><img src="../static/img/previous.png" /></a>
   <a href="#" onClick="toggle_play()"><img src="../static/img/play.png" /></a>
   <a href="#" onClick="play_next()"><img src="../static/img/next.png" /></a>
@@ -63,7 +60,6 @@
       <p>
       Use Twitter to find your perfect playlist<br>
       </p>
-      <p><input type="submit" value="@twitteruser"></p>
    </form>
    </div>
 {% endif %}

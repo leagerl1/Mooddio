@@ -1,17 +1,23 @@
 <html>
   <head>
     <style>
-      html{
-	background-color: #18ade0;
+      * {
+	   font-family: Helvetica, Arial, "Lucida Grande", sans-serif; 
       }
       body{
-	background: url(../static/img/rsz_logo_full.png) no-repeat center 20px fixed;
-	background-repeat:no-repeat; 
+	background-color: #18ade0;
+      }
+      .logo {
+      	background:url(../static/img/rsz_logo_full.png) no-repeat center center;
+	width:408px;
+	height:400px;
+	margin:0 auto;
       }
       </style>
     <title>Moodio</title>
   </head>
   <body>
+    <div class="logo"></div>
     {% block content %}{% endblock %}
   </body>
   </html>
