@@ -33,12 +33,11 @@
 <h2>Your happiness level is: {{mood}}</h2>
 <script>
   R.ready(function() {
+  {% for song in tracks %}
+  R.player.queue.add("{{ song }}");
+  {% endfor %}
   R.player.play();
   });
-  {% for song in tracks %}
-  R.player.queue.add({{ song }});
-  {% endfor %}
-  R.player.queue.play();
   function play_previous(){
   R.player.previous();
   }
