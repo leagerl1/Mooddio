@@ -24,7 +24,7 @@ def get_mood(_mood_val):
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
 	form = LoginForm()
-	tracks = []
+	tracks = {'id':[],'title':[]}
 	posts = []
 	mood = ""
 	if(form.twitter.data):
@@ -54,7 +54,8 @@ def index():
 
 			for i in range(len(data['response']['songs'])):
 				if len(data['response']['songs'][i]['tracks']) > 0:
-        				tracks.append(data['response']['songs'][i]['tracks'][0]['foreign_id'][14:])
+        				tracks['id'].append(data['response']['songs'][i]['tracks'][0]['foreign_id'][14:])
+        				tracks['title'].append(data['response']['songs'][i]['title'])
 		else:
 			form.twitter.data = ""
 	return render_template("index.html",
