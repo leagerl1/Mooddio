@@ -9,6 +9,18 @@ import json
 import pyen
 import requests
 
+def get_mood(_mood_val):
+	if _mood_val < 0:
+		return "angry"
+	elif _mood_val < 0.11:
+		return "sad"
+	elif _mood_val < 0.22:
+		return "relaxing"
+	elif _mood_val < 0.35:
+		return "happy"
+	else:
+		return "excited"
+
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
@@ -31,11 +43,8 @@ def index():
 			al_r = requests.post(al_url, data=al_params)
 			al_data = json.loads(al_r.text)
 			mood_val = al_data['docSentiment']['score']
-			mood = ""
-			if mood_val < .3:
-				mood = "sad"
-			else:
-				mood = "happy"
+			mood = get_mood(float(mood_val))
+			print mood_val
 			en = pyen.Pyen("KDS5VIPB1DQPBQKR6")
 
 			ec_url = 'http://developer.echonest.com/api/v4/playlist/static'
