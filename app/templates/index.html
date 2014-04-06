@@ -6,8 +6,9 @@
 <h1>Hi, {{form.twitter.data}}!</h1>
 <h2>Your happiness level is: {{mood}}</h2>
 <script>
-  R.ready(function(){
-});
+   R.ready(function() {
+  R.player.play({source: {{first_song}}});
+  });
   {% for song in tracks %}
   R.player.queue.add({{song}});
   {% endfor %}
