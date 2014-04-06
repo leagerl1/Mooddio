@@ -4,7 +4,6 @@ from forms import LoginForm
 from requests_oauthlib import OAuth1
 from twkey import *
 from alkey import *
-from words import *
 import json
 import pyen
 import requests

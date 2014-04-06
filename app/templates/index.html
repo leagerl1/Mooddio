@@ -1,9 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 <style>
-  a{
-
-  }
+      .gettwit, .buttons {
+        position:absolute;
+	height: 100px;
+        width: 450px;
+        text-align:center;
+        margin: 0 auto;
+	left:50%;
+	margin-left:-225px;
+	bottom: 150px;
+      }
+      input[type=text]
+      {
+        background: rgba(0,0,0,0);
+        border: 0;
+        font-size: 50px;
+        height: 75px;
+        width: 450px;
+        text-transform:uppercase;
+        padding-left:30px;
+      } 
+      input:focus
+      {
+        outline:none;
+      }
 </style>
 {% if form.twitter.data %}
 <script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
@@ -33,14 +54,18 @@
   <a href="#" onClick="play_next()"><img src="../static/img/next.png" /></a>
 </div>
 {% else %}
-   <form action="" method="post" name="login">
+   <div class ="gettwit">
+   <form action="" method="post" name="login" autocomplete="off">
       {{form.hidden_tag()}}
       <p>
-      Please enter your Twitter Handle:<br>
       {{form.twitter}}
-       </p>
-       <p><input type="submit" value="Sign In"></p>
+      </p>
+      <p>
+      Use Twitter to find your perfect playlist<br>
+      </p>
+      <p><input type="submit" value="@twitteruser"></p>
    </form>
+   </div>
 {% endif %}
 {% endblock %}
 
