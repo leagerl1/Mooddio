@@ -3,6 +3,13 @@
 {% if form.twitter.data %}
    <h1>Hi, {{form.twitter.data}}!</h1>
    <h2>Your happiness level is: {{mood}}</h2>
+   <script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
+   </script>
+   <script>
+     R.ready(function() {
+     R.player.play({source: "a3032151"}); // Alice In Chains - The Devil Put Dinosaurs Here
+     });
+   </script>
 {% else %}
    <form action="" method="post" name="login">
       {{form.hidden_tag()}}
@@ -14,3 +21,4 @@
    </form>
 {% endif %}
 {% endblock %}
+
