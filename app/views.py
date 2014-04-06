@@ -13,6 +13,7 @@ import requests
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
 	form = LoginForm()
+	tracks = []
 	posts = []
 	mood = ""
 	if(form.twitter.data):
@@ -41,16 +42,15 @@ def index():
 			ec_params = {'api_key': 'KDS5VIPB1DQPBQKR6','mood':mood,'type': 'artist-description','results': '20','bucket': ['id:rdio-US', 'tracks']}
 			ec_r = requests.get(ec_url, params=ec_params)
 
-			tracks = []
 			data = json.loads(ec_r.text)
 
 			for i in range(len(data['response']['songs'])):
 				if len(data['response']['songs'][i]['tracks']) > 0:
         				tracks.append(data['response']['songs'][i]['tracks'][0]['foreign_id'][14:])
-			print tracks
 		else:
 			form.twitter.data = ""
 	return render_template("index.html",
 		form = form,
+		tracks = tracks,
 		mood = mood)
 

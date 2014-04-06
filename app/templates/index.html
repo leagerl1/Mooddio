@@ -3,6 +3,9 @@
 {% if form.twitter.data %}
    <h1>Hi, {{form.twitter.data}}!</h1>
    <h2>Your happiness level is: {{mood}}</h2>
+   {% for song in tracks %}
+   <h3>{{song}}</h3>
+   {% endfor %}
    <script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
    </script>
    <script>
