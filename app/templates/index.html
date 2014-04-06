@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <style>
+  a{
+    margin: 0 10px 0 3px;
+  }
       .gettwit, .buttons {
 	color: white;
 	height: 100px;
@@ -35,20 +38,21 @@
   R.player.play();
   });
   function play_previous(){
-  R.player.previous();
+    R.player.previous();
   }
   function toggle_play(){
-  R.player.togglePause();
+    R.player.togglePause();
+    document.getElementById("changer").src = "../static/img/play2.png";
   }
   function play_next(){
-  R.player.next();
+    R.player.next();
   }
 </script>
 <div class="buttons" align="center">
 <h3>From your tweets, I see you are a {{mood}} person.<br>Here's your playlist.</h3>
-  <a href="#" onClick="play_previous()"><img src="../static/img/previous.png" /></a>
-  <a href="#" onClick="toggle_play()"><img src="../static/img/play.png" /></a>
-  <a href="#" onClick="play_next()"><img src="../static/img/next.png" /></a>
+  <a href="#" onClick="play_previous()"><img src="../static/img/previous2.png" /></a>
+  <a href="#" onClick="toggle_play()"><img src="../static/img/pause2.png" id="changer"/></a>
+  <a href="#" onClick="play_next()"><img src="../static/img/next2.png" /></a>
 </div>
 {% else %}
    <div class ="gettwit">
