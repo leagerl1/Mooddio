@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+  a{
+
+  }
+</style>
 {% if form.twitter.data %}
 <script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
 </script>
@@ -22,9 +27,11 @@
   R.player.next();
   }
 </script>
-<button onclick="play_previous()">Previous</button>
-   <button onclick="toggle_play()">Play/Pause</button>
-   <button onclick="play_next()">Next</button>
+<div class="buttons" align="center">
+  <a href="#" onClick="play_previous()"><img src="../static/img/previous.png" /></a>
+  <a href="#" onClick="toggle_play()"><img src="../static/img/play.png" /></a>
+  <a href="#" onClick="play_next()"><img src="../static/img/next.png" /></a>
+</div>
 {% else %}
    <form action="" method="post" name="login">
       {{form.hidden_tag()}}
