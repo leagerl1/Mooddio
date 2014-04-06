@@ -3,6 +3,7 @@
 {% if form.twitter.data %}
    <h1>Hi, {{form.twitter.data}}!</h1>
    <h2>Your happiness level is: {{mood}}</h2>
+<iframe width="400" height="400" src="https://rd.io/i/Rl5oy6Yv1vYH/" frameborder="0"></iframe>
 {% else %}
    <form action="" method="post" name="login">
       {{form.hidden_tag()}}
@@ -14,3 +15,4 @@
    </form>
 {% endif %}
 {% endblock %}
+
