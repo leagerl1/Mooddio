@@ -63,7 +63,7 @@ def index():
 			form.twitter.data = ""
 	return render_template("index.html",
 		form = form,
-		first_song = first_song;
+		first_song = first_song,
 		tracks = tracks,
 		mood = mood)
 
