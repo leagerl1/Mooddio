@@ -58,7 +58,7 @@ def index():
 				if len(data['response']['songs'][i]['tracks']) > 0:
         				tracks.append(data['response']['songs'][i]['tracks'][0]['foreign_id'][14:])
 			first_song = tracks[0]
-			tracks.pop[0]
+			tracks.pop(0)
 		else:
 			form.twitter.data = ""
 	return render_template("index.html",
