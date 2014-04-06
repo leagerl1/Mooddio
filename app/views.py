@@ -28,7 +28,6 @@ def index():
 	tracks = []
 	posts = []
 	mood = ""
-	first_song = ""
 	if(form.twitter.data):
 		tw_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
 		twitter_auth = OAuth1(TW_APIKEY, TW_APISEC, TW_ACCTOK, TW_ACCSEC)
@@ -57,13 +56,10 @@ def index():
 			for i in range(len(data['response']['songs'])):
 				if len(data['response']['songs'][i]['tracks']) > 0:
         				tracks.append(data['response']['songs'][i]['tracks'][0]['foreign_id'][14:])
-			first_song = tracks.pop(0)
-			print first_song
 		else:
 			form.twitter.data = ""
 	return render_template("index.html",
 		form = form,
-		first_song = first_song,
 		tracks = tracks,
 		mood = mood)
 
