@@ -1,18 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 {% if form.twitter.data %}
-   <h1>Hi, {{form.twitter.data}}!</h1>
-   <h2>Your happiness level is: {{mood}}</h2>
-   {% for song in tracks %}
-   <h3>{{song}}</h3>
-   {% endfor %}
-   <script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
-   </script>
-   <script>
-     R.ready(function() {
-     R.player.play({source: "a3032151"}); // Alice In Chains - The Devil Put Dinosaurs Here
-     });
-   </script>
+<script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
+</script>
+<h1>Hi, {{form.twitter.data}}!</h1>
+<h2>Your happiness level is: {{mood}}</h2>
+<script>
+  R.ready(function() {
+  R.player.play({source: "a3032151"});
+  });
+  {% for song in tracks %}
+  R.player.queue.add({{song}});
+  {% endfor %}
+  function play_previous(){
+  R.player.previous();
+  }
+  function toggle_play(){
+  R.player.togglePause();
+  }
+  function play_next(){
+  R.player.next();
+  }
+</script>
+<button onclick="play_previous()">Previous</button>
+   <button onclick="toggle_play()">Play/Pause</button>
+   <button onclick="play_next()">Next</button>
 {% else %}
    <form action="" method="post" name="login">
       {{form.hidden_tag()}}
