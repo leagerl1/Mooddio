@@ -43,7 +43,6 @@ def index():
 			al_data = json.loads(al_r.text)
 			mood_val = al_data['docSentiment']['score']
 			mood = get_mood(float(mood_val))
-			print mood_val
 			en = pyen.Pyen("KDS5VIPB1DQPBQKR6")
 
 			ec_url = 'http://developer.echonest.com/api/v4/playlist/static'
