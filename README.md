@@ -4,7 +4,7 @@ To get working on local server:
 
 python virtualenv.py flask
 
-Then install dependencied:
+Then install dependencies:
 
 flask/bin/pip install flask==0.9
 flask/bin/pip install flask-login

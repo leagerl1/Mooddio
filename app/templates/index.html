@@ -28,14 +28,14 @@
       }
 </style>
 {% if form.twitter.data %}
-<script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
+<script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=0W55ZjR11Nr3oKZpijkm6A">
 </script>
 <script>
   R.ready(function() {
-  {% for song in tracks['id'] %}
-  R.player.queue.add("{{ song }}");
-  {% endfor %}
-  R.player.play();
+    {% for song in tracks['id'] %}
+    R.player.queue.add("{{ song }}");
+    {% endfor %}
+    R.player.play();
   });
   function play_previous(){
     R.player.previous();
