@@ -3,7 +3,7 @@ Web app music player that generates mood based playlists based on the sentiment 
 
 https://challengepost.com/software/mooddio
 
-#Dependencies
+###Dependencies
 -flask/bin/pip install flask==0.9
 -flask/bin/pip install flask-login
 -flask/bin/pip install flask-openid
